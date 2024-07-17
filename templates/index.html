@@ -61,15 +61,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Presiden Ruto's Speech During A Retreat on the
+        <h1>President Ruto's Speech During A Retreat on the
             Instituional reforms of the African
             Union Next Word Predictor</h1>
         <form action='/predict' method='POST'>
             <label for="inputText">Type text here</label>
-            <input type="text" id="inputText" name='inputText'>
+            <input type="text" id="inputText" name='inputText' value="{{ request.form.inputText if request.form else '' }}" required>
             
             <label for="wordCount">How many words to predict</label>
-            <input type="number" id="wordCount" name='wordCount' value="1" min="1">
+            <input type="number" id="wordCount" name='wordCount' min="1" value="{{ request.form.wordCount if request.form else '' }}" required>
             
             <button id="predictButton">Predict</button>
         </form>
